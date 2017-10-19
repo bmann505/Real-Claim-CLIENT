@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up-form.component.css']
 })
 export class SignUpFormComponent implements OnInit {
+adjustor = false;
 
   constructor() { }
 
   ngOnInit() {
   }
+
+onAdjustor() {
+  this.adjustor = true;
+}
 
 }

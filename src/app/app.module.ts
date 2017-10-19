@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './home/header/header.component';
@@ -9,6 +11,8 @@ import { SignInFormComponent } from './home/auth/sign-in/sign-in-form/sign-in-fo
 import { HomeComponent } from './home/home.component';
 import { SignUpFormComponent } from './home/auth/sign-in/sign-up-form/sign-up-form.component';
 
+import { UserService } from './user.service';
+import { AuthService } from './auth.service';
 
 
 
@@ -19,13 +23,16 @@ import { SignUpFormComponent } from './home/auth/sign-in/sign-up-form/sign-up-fo
     SignInComponent,
     SignInFormComponent,
     HomeComponent,
-    SignUpFormComponent
+    SignUpFormComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [UserService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

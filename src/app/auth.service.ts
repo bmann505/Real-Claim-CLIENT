@@ -9,4 +9,8 @@ export class AuthService {
   signIn(body: any) {
     return this.http.post('http://localhost:8080/signin', body)
   }
+
+  signUp(body: any) {
+    return this.http.post('http://localhost:8080/signup', body)
+  }
 }

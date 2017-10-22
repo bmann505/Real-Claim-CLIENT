@@ -13,6 +13,8 @@ import { SignUpFormComponent } from './home/auth/sign-in/sign-up-form/sign-up-fo
 
 import { UserService } from './user.service';
 import { AuthService } from './auth.service';
+import { OwnerComponent } from './home/views/owner/owner.component';
+import { UserHeaderComponent } from './home/views/user-header/user-header.component';
 
 
 
@@ -24,6 +26,8 @@ import { AuthService } from './auth.service';
     SignInFormComponent,
     HomeComponent,
     SignUpFormComponent,
+    OwnerComponent,
+    UserHeaderComponent,
 
   ],
   imports: [

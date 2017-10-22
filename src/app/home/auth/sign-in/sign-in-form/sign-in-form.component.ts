@@ -28,7 +28,7 @@ export class SignInFormComponent implements OnInit {
       (response: Response) => {
         let data = response.json();
         localStorage.setItem('token', data.data)
-        this.router.navigate(['/'])
+        this.router.navigate(['/owner'])
         },
       (error) => console.log(error)
     );

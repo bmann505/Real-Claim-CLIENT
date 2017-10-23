@@ -1,26 +1,26 @@
 <app-header></app-header>
-<div class="row">
-  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-    <form class="form-inline" (ngSubmit)=onSignIn(f) #f="ngForm">
-      <div class="form-group">
-        <label class="sr-only" for="signInEmail">Email address</label>
-        <input type="email"
-        class="form-control"
-        id="signInEmail"
-        placeholder="Email"
-        ngModel
-        name="email">
-      </div>
-      <div class="form-group">
-        <label class="sr-only" for="signInPassword">Password</label>
-        <input type="password"
-         class="form-control"
-         id="signInPassword"
-         placeholder="Password"
-         ngModel 
-         name="password">
-      </div>
-      <button type="submit" class="btn btn-default">Sign in</button>
-    </form>
-  </div>
+<div class="well center-block" style="max-width: 600px">
+  <form class="form-inline" (ngSubmit)=onSignIn(f) #f="ngForm">
+    <div class="form-group">
+      <label class="sr-only" for="signInEmail">Email address</label>
+      <input type="email"
+      class="form-control"
+      id="signInEmail"
+      placeholder="Email"
+      ngModel
+      name="email"
+      required>
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="signInPassword">Password</label>
+      <input type="password"
+       class="form-control"
+       id="signInPassword"
+       placeholder="Password"
+       ngModel
+       name="password"
+       required>
+    </div>
+    <button type="submit" class="btn btn-default">Sign in</button>
+  </form>
 </div>

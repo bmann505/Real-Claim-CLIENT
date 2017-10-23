@@ -1,4 +1,5 @@
 <app-user-header></app-user-header>
-<p>
-  owner works!
-</p>
+<div class="well center-block" style="max-width: 800px" [hidden]="true">
+  <button type="button" class="btn btn-default btn-lg btn-block" (click)="onNewForm()">Start a new claim</button>
+</div>
+<app-new-claim-form [hidden]="newClaimForm"></app-new-claim-form>

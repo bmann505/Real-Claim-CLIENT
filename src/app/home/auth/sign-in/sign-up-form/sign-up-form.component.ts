@@ -25,17 +25,23 @@ onSignUp(form: NgForm) {
   const name = form.value.name;
   const email = form.value.email;
   const password = form.value.password;
+  const title = form.value.title;
+  const company = form.value.company;
+  const role = form.value.role;
   const body = {
     name: name,
     email: email,
-    password: password
+    password: password,
+    title: title,
+    company: company,
+    role: role
   }
   this.authService.signUp(body)
   .subscribe(
     (response: Response) => {
       let data = response.json()
       localStorage.setItem('token', data.data);
-      this.router.navigate(['/']);
+      this.router.navigate(['/owner']);
     }
   )
 }

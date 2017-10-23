@@ -1,67 +1,85 @@
 <app-header></app-header>
-<div class="row">
-  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-    <form class="form-horizontal" (ngSubmit)="onSignUp(f)" #f="ngForm">
+<div class="well center-block" style="max-width: 600px">
+  <form class="form-horizontal" (ngSubmit)="onSignUp(f)" #f="ngForm">
+    <div class="form-group">
+      <label for="signUpName" class="col-sm-2 control-label">Name</label>
+      <div class="col-sm-10">
+        <input type="text"
+        class="form-control"
+        id="signUpName"
+        placeholder="Name"
+        ngModel
+        name="name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="signUpEmail" class="col-sm-2 control-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email"
+        class="form-control"
+        id="signUpEmail"
+        placeholder="example@realclaim.com"
+        ngModel
+        name="email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="signUpPassword" class="col-sm-2 control-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password"
+        class="form-control"
+        id="signUpPassword"
+        placeholder="Password"
+        ngModel
+        name="password">
+      </div>
+    </div>
+    <div class="form-group" [hidden]="!adjustor">
+      <label for="signUpTitle" class="col-sm-2 control-label">Title</label>
+      <div class="col-sm-10">
+        <input type="text"
+        class="form-control"
+        id="signUpTitle"
+        placeholder="Title"
+        ngModel
+        name="title">
+      </div>
+    </div>
+    <div class="form-group" [hidden]="!adjustor">
+      <label for="signUpCompany" class="col-sm-2 control-label">Company</label>
+      <div class="col-sm-10">
+        <input type="text"
+        class="form-control"
+        id="signUpCompany"
+        placeholder="Company"
+        ngModel
+        name="company">
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <div class="form-group">
-        <label for="signUpName" class="col-sm-2 control-label">Name</label>
-        <div class="col-sm-10">
-          <input type="text"
-          class="form-control"
-          id="signUpName"
-          placeholder="Name"
+        <label class="checkbox-inline col-sm-2 control-label">
+          <input type="radio"
+          id="adjustorCheckbox"
+          value="adjustor"
+          (click)="onAdjustor()"
           ngModel
-          name="name">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="signUpEmail" class="col-sm-2 control-label">Email</label>
-        <div class="col-sm-10">
-          <input type="email"
-          class="form-control"
-          id="signUpEmail"
-          placeholder="example@realclaim.com"
+          name="role">Insurance Adjustor
+        </label>
+        <label class="checkbox-inline col-sm-2 control-label">
+          <input type="radio"
+          id="contractorCheckbox"
+          value="contractor"
+          (click)="onAdjustor()"
           ngModel
-          name="email">
-        </div>
+          name="role"> Contractor
+        </label>
       </div>
-      <div class="form-group">
-        <label for="signUpPassword" class="col-sm-2 control-label">Password</label>
-        <div class="col-sm-10">
-          <input type="password"
-          class="form-control"
-          id="signUpPassword"
-          placeholder="Password"
-          ngModel
-          name="password">
-        </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="Submit" class="btn btn-default">Register</button>
       </div>
-      <div class="form-group" [hidden]="!adjustor">
-        <label for="signUpTitle" class="col-sm-2 control-label">Title</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="signUpTitle" placeholder="*Only for adjustors or contractors">
-        </div>
-      </div>
-      <div class="form-group" [hidden]="!adjustor">
-        <label for="signUpCompany" class="col-sm-2 control-label">Company</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="signUpCompany" placeholder="*Only for adjustors or contractors">
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-        <div class="form-group">
-          <label class="checkbox-inline col-sm-2 control-label">
-            <input type="checkbox" id="adjustorCheckbox" value="adjustor" (click)="onAdjustor()">Insurance Adjustor
-          </label>
-          <label class="checkbox-inline col-sm-2 control-label">
-            <input type="checkbox" id="contractorCheckbox" value="contractor" (click)="onAdjustor()"> Contractor
-          </label>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button type="Submit" class="btn btn-default">Register</button>
-        </div>
-      </div>
-    </form>
-  </div>
+    </div>
+  </form>
 </div>

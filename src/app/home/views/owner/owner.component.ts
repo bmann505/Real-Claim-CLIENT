@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./owner.component.css']
 })
 export class OwnerComponent implements OnInit {
+  newClaimForm = true;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onNewForm() {
+    this.newClaimForm = false;
   }
 
 }

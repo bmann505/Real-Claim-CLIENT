@@ -15,6 +15,7 @@ import { UserService } from './user.service';
 import { AuthService } from './auth.service';
 import { OwnerComponent } from './home/views/owner/owner.component';
 import { UserHeaderComponent } from './home/views/user-header/user-header.component';
+import { NewClaimFormComponent } from './home/views/owner/new-claim-form/new-claim-form.component';
 
 
 
@@ -28,6 +29,7 @@ import { UserHeaderComponent } from './home/views/user-header/user-header.compon
     SignUpFormComponent,
     OwnerComponent,
     UserHeaderComponent,
+    NewClaimFormComponent,
 
   ],
   imports: [

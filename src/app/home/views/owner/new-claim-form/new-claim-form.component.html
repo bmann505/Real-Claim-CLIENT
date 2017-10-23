@@ -46,23 +46,17 @@
     <div class="form-group">
       <label for="newClaimAdjustor" class="col-sm-2 control-label">Insurance Adjustor</label>
       <div class="col-sm-10">
-        <input type="text"
-        class="form-control"
-        id="newClaimAdjustor"
-        placeholder=""
-        ngModel
-        name="newClaimAdjustor">
+        <select id="status" name="select" class="form-control" >
+          <option value="{{adjustor.id}}" *ngFor="let adjustor of adjustors">{{ adjustor.name + " " + adjustor.company}}</option>
+        </select>
       </div>
     </div>
     <div class="form-group">
       <label for="newClaimContractor" class="col-sm-2 control-label">Contractor</label>
       <div class="col-sm-10">
-        <input type="text"
-        class="form-control"
-        id="newClaimContractor"
-        placeholder=""
-        ngModel
-        name="newClaimContractor">
+        <select id="status" name="select" class="form-control" >
+          <option value="{{contractor.id}}" *ngFor="let contractor of contractors">{{ contractor.name + " " + contractor.company}}</option>
+        </select>
       </div>
     </div>
     <div class="form-group">

@@ -16,6 +16,7 @@ import { AuthService } from './auth.service';
 import { OwnerComponent } from './home/views/owner/owner.component';
 import { UserHeaderComponent } from './home/views/user-header/user-header.component';
 import { NewClaimFormComponent } from './home/views/owner/new-claim-form/new-claim-form.component';
+import { ContractorComponent } from './home/views/contractor/contractor.component';
 
 
 
@@ -30,6 +31,7 @@ import { NewClaimFormComponent } from './home/views/owner/new-claim-form/new-cla
     OwnerComponent,
     UserHeaderComponent,
     NewClaimFormComponent,
+    ContractorComponent,
 
   ],
   imports: [

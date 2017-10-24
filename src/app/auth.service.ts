@@ -7,10 +7,10 @@ export class AuthService {
   constructor(private http: Http, private router: Router){}
 
   signIn(body: any) {
-    return this.http.post('http://localhost:8080/signin', body)
+    return this.http.post('https://radiant-wave-93298.herokuapp.com/signin', body)
   }
 
   signUp(body: any) {
-    return this.http.post('http://localhost:8080/signup', body)
+    return this.http.post('https://radiant-wave-93298.herokuapp.com/signup', body)
   }
 }

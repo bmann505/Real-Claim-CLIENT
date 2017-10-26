@@ -31,6 +31,7 @@ onGetOwnerClaims() {
       data.forEach(claim => {
         this.ownerClaims.push(claim);
       })
+      console.log(this.ownerClaims)
     }
   )
 }

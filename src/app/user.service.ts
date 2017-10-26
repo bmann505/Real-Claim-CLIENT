@@ -22,6 +22,9 @@ export class UserService {
     getClaimsByContractor(id) {
       return this.http.get(`http://localhost:8080/contractor/${id}`)
     }
+    getClaimsByAdjustor(id) {
+      return this.http.get(`http://localhost:8080/adjustor/${id}`)
+    }
 
     parsedJWT(token) {
       const base64Url = token.split('.')[1];

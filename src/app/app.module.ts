@@ -20,6 +20,7 @@ import { ContractorComponent } from './home/views/contractor/contractor.componen
 import { AdjustorComponent } from './home/views/adjustor/adjustor.component';
 import { OwnerClaimsComponent } from './home/views/owner/owner-claims/owner-claims.component';
 import { ContractorClaimsComponent } from './home/views/contractor/contractor-claims/contractor-claims.component';
+import { AdjustorClaimsComponent } from './home/views/adjustor/adjustor-claims/adjustor-claims.component';
 
 
 
@@ -37,7 +38,8 @@ import { ContractorClaimsComponent } from './home/views/contractor/contractor-cl
     ContractorComponent,
     AdjustorComponent,
     OwnerClaimsComponent,
-    ContractorClaimsComponent
+    ContractorClaimsComponent,
+    AdjustorClaimsComponent
   ],
   imports: [
     BrowserModule,

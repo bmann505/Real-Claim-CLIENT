@@ -21,7 +21,7 @@ export class UserService {
     }
 
     getClaimsByContractor(id) {
-      return this.http.get(`https://radiant-wave-93298.herokuapp.com/contractor/${id}`)
+      return this.http.get('https://radiant-wave-93298.herokuapp.com/contractor/'`${id}`)
     }
     getClaimsByAdjustor(id) {
       return this.http.get(`https://radiant-wave-93298.herokuapp.com/adjustor/${id}`)

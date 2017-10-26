@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from 'app/user.service'
 import { Response } from '@angular/http';
 import { NgForm } from '@angular/forms';
@@ -11,6 +11,9 @@ import { NgForm } from '@angular/forms';
 export class NewClaimFormComponent implements OnInit {
   contractors = [];
   adjustors = [];
+  descriptions = ['Roof', 'Fence', 'Windows', 'Siding']
+
+  @Input() onNewForm: () => void;
   constructor(private userService: UserService) { }
 
   ngOnInit() {
@@ -33,8 +36,9 @@ export class NewClaimFormComponent implements OnInit {
     }
 
     onSubmitClaim(form: NgForm) {
-      const token = localStorage.getItem('token')
-      const parsedToken = this.parsedJWT(token);
+      const token = localStorage.getItem('token');
+      const parsedToken = this.userService.parsedJWT(token);
+      const description = form.value.newClaimDescription;
       const estimate = form.value.newClaimEstimate;
       const status = form.value.newClaimStatus;
       const value = form.value.newClaimValue;
@@ -43,6 +47,7 @@ export class NewClaimFormComponent implements OnInit {
       const adjustor_id = parseInt(form.value.newClaimAdjustor);
       const contractor_id = parseInt(form.value.newClaimContractor);
       const body = {
+       'claim-description': description,
         estimate: estimate,
         status: status,
         value: value,
@@ -51,17 +56,14 @@ export class NewClaimFormComponent implements OnInit {
         adjustor_id: adjustor_id,
         contractor_id: contractor_id
       }
+      console.log(body)
       this.userService.postClaim(body)
       .subscribe(
         (response: Response) => {
           let data = response.json();
         }
       )
+      this.onNewForm()
     }
 
-  parsedJWT(token) {
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace('-', '+').replace('_', '/');
-    return JSON.parse(window.atob(base64));
-  };
 }

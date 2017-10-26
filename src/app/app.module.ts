@@ -18,6 +18,8 @@ import { UserHeaderComponent } from './home/views/user-header/user-header.compon
 import { NewClaimFormComponent } from './home/views/owner/new-claim-form/new-claim-form.component';
 import { ContractorComponent } from './home/views/contractor/contractor.component';
 import { AdjustorComponent } from './home/views/adjustor/adjustor.component';
+import { OwnerClaimsComponent } from './home/views/owner/owner-claims/owner-claims.component';
+import { ContractorClaimsComponent } from './home/views/contractor/contractor-claims/contractor-claims.component';
 
 
 
@@ -34,7 +36,8 @@ import { AdjustorComponent } from './home/views/adjustor/adjustor.component';
     NewClaimFormComponent,
     ContractorComponent,
     AdjustorComponent,
-
+    OwnerClaimsComponent,
+    ContractorClaimsComponent
   ],
   imports: [
     BrowserModule,

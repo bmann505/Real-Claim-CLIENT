@@ -1,3 +1,6 @@
+body {
+  background-image: image();
+}
 .btn-default:hover {
   border-color: #91112f !important;
 }

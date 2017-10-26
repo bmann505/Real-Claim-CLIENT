@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthService {
   // https://radiant-wave-93298.herokuapp.com/signin'
+  // https://radiant-wave-93298.herokuapp.com/signup
   constructor(private http: Http, private router: Router){}
 
   signIn(body: any) {
@@ -12,6 +13,6 @@ export class AuthService {
   }
 
   signUp(body: any) {
-    return this.http.post('https://radiant-wave-93298.herokuapp.com/signup', body)
+    return this.http.post('http://localhost:8080/signup', body)
   }
 }

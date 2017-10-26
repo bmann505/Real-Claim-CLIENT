@@ -1,6 +1,18 @@
 <div class="well center-block" style="max-width: 800px">
   <form class="form-horizontal" (ngSubmit)="onSubmitClaim(f)" #f="ngForm">
     <div class="form-group">
+      <label for="newClaimDescription" class="col-sm-2 control-label">Description</label>
+      <div class="col-sm-10">
+        <select id="newClaimDescription"
+         name="newClaimDescription"
+         class="form-control"
+         ngModel>
+         <option value="" disabled selected>Description</option>
+          <option [value]="description" *ngFor="let description of descriptions">{{ description }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
       <label for="estimate" class="col-sm-2 control-label">Estimate: $</label>
       <div class="col-sm-10">
         <input type="number"
@@ -73,6 +85,7 @@
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <button type="Submit" class="btn btn-default">Submit</button>
+        <button type="button" class="btn btn-default" (click)="onNewForm()">Close</button>
       </div>
     </div>
   </form>

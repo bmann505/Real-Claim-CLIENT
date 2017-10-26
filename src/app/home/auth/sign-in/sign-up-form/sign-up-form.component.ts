@@ -41,7 +41,17 @@ onSignUp(form: NgForm) {
     (response: Response) => {
       let data = response.json()
       localStorage.setItem('token', data.data);
-      this.router.navigate(['/owner']);
+      if(data.role === 'contractor') {
+        this.router.navigate(['/contractor'])
+      } else if (data.role === 'adjustor') {
+        this.router.navigate(['/adjustor'])
+      } else if (data.role === 'claims user') {
+        this.router.navigate(['/owner'])
+      } else {
+        alert('invalid credentials')
+        this.router.navigate(['/']);
+      }
+
     }
   )
 }

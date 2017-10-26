@@ -2,4 +2,8 @@
 <div class="well center-block" style="max-width: 800px" [hidden]="true">
   <button type="button" class="btn btn-default btn-lg btn-block" (click)="onNewForm()">Start a new claim</button>
 </div>
-<app-new-claim-form [hidden]="newClaimForm"></app-new-claim-form>
+<app-new-claim-form
+[hidden]="newClaimForm"
+[onNewForm]="onNewForm.bind(this)">
+</app-new-claim-form>
+<app-owner-claims></app-owner-claims>

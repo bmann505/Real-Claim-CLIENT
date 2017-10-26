@@ -17,14 +17,14 @@ export class UserService {
     }
 
     getClaimsByOwner(id) {
-      return this.http.get(`https://radiant-wave-93298.herokuapp.com/owner${id}`)
+      return this.http.get(`https://radiant-wave-93298.herokuapp.com/owner/${id}`)
     }
 
     getClaimsByContractor(id) {
-      return this.http.get(`https://radiant-wave-93298.herokuapp.com/contractor${id}`)
+      return this.http.get(`https://radiant-wave-93298.herokuapp.com/contractor/${id}`)
     }
     getClaimsByAdjustor(id) {
-      return this.http.get(`https://radiant-wave-93298.herokuapp.com/adjustor${id}`)
+      return this.http.get(`https://radiant-wave-93298.herokuapp.com/adjustor/${id}`)
     }
 
     parsedJWT(token) {

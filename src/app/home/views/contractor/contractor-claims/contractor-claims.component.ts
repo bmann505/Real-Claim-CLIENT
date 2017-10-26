@@ -8,7 +8,7 @@ import { Response } from '@angular/http';
 })
 export class ContractorClaimsComponent implements OnInit {
   contractorClaims = [];
-
+  contratorName = '';
   constructor(private userService: UserService) { }
 
   ngOnInit() {
@@ -25,6 +25,9 @@ export class ContractorClaimsComponent implements OnInit {
         data.forEach(claim => {
           this.contractorClaims.push(claim);
         })
+        console.log(this.contractorClaims)
+        this.contratorName = this.contractorClaims[0].contractor;
+        console.log(this.contratorName)
       }
     )
   }

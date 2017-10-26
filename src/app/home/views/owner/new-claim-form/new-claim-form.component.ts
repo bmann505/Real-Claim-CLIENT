@@ -1,23 +1,28 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { UserService } from 'app/user.service'
 import { Response } from '@angular/http';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-claim-form',
   templateUrl: './new-claim-form.component.html',
   styleUrls: ['./new-claim-form.component.css']
 })
-export class NewClaimFormComponent implements OnInit {
+export class NewClaimFormComponent implements OnInit, OnChanges {
   contractors = [];
   adjustors = [];
   descriptions = ['Roof', 'Fence', 'Windows', 'Siding']
 
   @Input() onNewForm: () => void;
-  constructor(private userService: UserService) { }
+  @Input() onGetOwnerClaims: () => void;
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.getContractorsAndAdjustors()
+  }
+  ngOnChanges() {
+
   }
     getContractorsAndAdjustors() {
       this.userService.getUsers()
@@ -47,7 +52,7 @@ export class NewClaimFormComponent implements OnInit {
       const adjustor_id = parseInt(form.value.newClaimAdjustor);
       const contractor_id = parseInt(form.value.newClaimContractor);
       const body = {
-       'claim-description': description,
+        description: description,
         estimate: estimate,
         status: status,
         value: value,
@@ -56,14 +61,14 @@ export class NewClaimFormComponent implements OnInit {
         adjustor_id: adjustor_id,
         contractor_id: contractor_id
       }
-      console.log(body)
       this.userService.postClaim(body)
       .subscribe(
         (response: Response) => {
           let data = response.json();
         }
       )
-      this.onNewForm()
+      this.onNewForm();
     }
+
 
 }

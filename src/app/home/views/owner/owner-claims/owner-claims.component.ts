@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { UserService } from 'app/user.service';
 import { Response } from '@angular/http';
 
@@ -7,12 +7,16 @@ import { Response } from '@angular/http';
   templateUrl: './owner-claims.component.html',
   styleUrls: ['./owner-claims.component.css']
 })
-export class OwnerClaimsComponent implements OnInit {
+export class OwnerClaimsComponent implements OnInit, OnChanges {
   ownerClaims = [];
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.onGetOwnerClaims()
+  }
+
+  ngOnChanges() {
     this.onGetOwnerClaims()
   }
 

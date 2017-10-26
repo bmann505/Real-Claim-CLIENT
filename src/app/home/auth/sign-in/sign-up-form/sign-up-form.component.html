@@ -2,19 +2,17 @@
 <div class="well center-block" style="max-width: 600px">
   <form class="form-horizontal" (ngSubmit)="onSignUp(f)" #f="ngForm">
     <div class="form-group">
-      <label for="signUpName" class="col-sm-2 control-label">Name</label>
-      <div class="col-sm-10">
+      <div class="col-sm-10 col-md-12">
         <input type="text"
         class="form-control"
         id="signUpName"
-        placeholder="Name"
+        placeholder="Full Name"
         ngModel
         name="name">
       </div>
     </div>
     <div class="form-group">
-      <label for="signUpEmail" class="col-sm-2 control-label">Email</label>
-      <div class="col-sm-10">
+      <div class="col-sm-10 col-md-12">
         <input type="email"
         class="form-control"
         id="signUpEmail"
@@ -24,8 +22,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="signUpPassword" class="col-sm-2 control-label">Password</label>
-      <div class="col-sm-10">
+      <div class="col-sm-10 col-md-12">
         <input type="password"
         class="form-control"
         id="signUpPassword"
@@ -35,8 +32,7 @@
       </div>
     </div>
     <div class="form-group" [hidden]="!adjustor">
-      <label for="signUpTitle" class="col-sm-2 control-label">Title</label>
-      <div class="col-sm-10">
+      <div class="col-sm-10 col-md-12">
         <input type="text"
         class="form-control"
         id="signUpTitle"
@@ -46,8 +42,7 @@
       </div>
     </div>
     <div class="form-group" [hidden]="!adjustor">
-      <label for="signUpCompany" class="col-sm-2 control-label">Company</label>
-      <div class="col-sm-10">
+      <div class="col-sm-10 col-md-12">
         <input type="text"
         class="form-control"
         id="signUpCompany"
@@ -83,3 +78,82 @@
     </div>
   </form>
 </div>
+
+<!-- <div class="container" id="wrap">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form class="form" (ngSubmit)="onSignUp(f)" #f="ngForm">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <input type="text"
+                            name="firstname"
+                            value=""
+                            class="form-control input-lg"
+                            placeholder="First Name"
+                            ngModel
+                            name="firstname"/>
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                          <input type="text"
+                          name="lastname"
+                          value=""
+                          class="form-control input-lg"
+                          placeholder="Last Name"
+                          ngModel
+                          name="lastname"/>
+                        </div>
+                    </div>
+                    <input type="text"
+                    name="email"
+                    value=""
+                    class="form-control input-lg"
+                    placeholder="Email"
+                    ngModel
+                    name="email"/>
+                    <input type="password"
+                    name="password"
+                    value=""
+                    class="form-control input-lg"
+                    placeholder="Password"
+                    ngModel
+                    name="password"/>
+                    <div class="form-group" [hidden]="!adjustor">
+                        <input type="text"
+                        class="form-control input-lg"
+                        id="signUpCompany"
+                        placeholder="Company"
+                        ngModel
+                        name="company">
+                    </div>
+                    <div class="form-group" [hidden]="!adjustor">
+                        <input type="text"
+                        class="form-control input-lg"
+                        id="signUpCompany"
+                        placeholder="Title"
+                        ngModel
+                        name="company">
+                    </div>
+                    <div class="form-group">
+                      <label class="checkbox-inline col-sm-2 control-label">
+                        <input type="radio"
+                        id="adjustorCheckbox"
+                        value="adjustor"
+                        (click)="onAdjustor()"
+                        ngModel
+                        name="role">Insurance Adjustor
+                      </label>
+                      <label class="checkbox-inline col-sm-2 control-label">
+                        <input type="radio"
+                        id="contractorCheckbox"
+                        value="contractor"
+                        (click)="onAdjustor()"
+                        ngModel
+                        name="role"> Contractor
+                      </label>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">Create my account</button>
+            </form>
+          </div>
+</div>
+</div> -->
+<!-- </div> -->

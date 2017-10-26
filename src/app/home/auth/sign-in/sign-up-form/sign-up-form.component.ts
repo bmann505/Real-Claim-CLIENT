@@ -36,16 +36,18 @@ onSignUp(form: NgForm) {
     company: company,
     role: role
   }
+  console.log(body)
   this.authService.signUp(body)
   .subscribe(
     (response: Response) => {
       let data = response.json()
+      console.log('data', data)
       localStorage.setItem('token', data.data);
       if(data.role === 'contractor') {
         this.router.navigate(['/contractor'])
       } else if (data.role === 'adjustor') {
         this.router.navigate(['/adjustor'])
-      } else if (data.role === 'claims user') {
+      } else if (data.role === 'claims user' || data.role === '') {
         this.router.navigate(['/owner'])
       } else {
         alert('invalid credentials')

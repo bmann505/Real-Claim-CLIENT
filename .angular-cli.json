@@ -11,6 +11,10 @@
         "assets",
         "favicon.ico"
       ],
+      "assets": [
+        "assets",
+        "web.config"
+      ],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",

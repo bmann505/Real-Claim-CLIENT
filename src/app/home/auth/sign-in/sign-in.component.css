@@ -1,5 +1,5 @@
 body {
-  background-image: image();
+  background-image: url("/assets/back-drop.jpg");
 }
 .btn-default:hover {
   border-color: #91112f !important;

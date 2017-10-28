@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './home/header/header.component';
@@ -45,7 +46,9 @@ import { AdjustorClaimsComponent } from './home/views/adjustor/adjustor-claims/a
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    NgbModule.forRoot(),
+    NgbModule
   ],
   providers: [UserService, AuthService],
   bootstrap: [AppComponent]

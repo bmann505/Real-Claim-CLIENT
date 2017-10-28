@@ -27,6 +27,13 @@ export class UserService {
       return this.http.get(`https://radiant-wave-93298.herokuapp.com/adjustor/${id}`)
     }
 
+    uploadImage(formData) {
+      return this.http.post(`http://localhost:8080/image/`, formData)
+    }
+
+    insertSupplement(body) {
+      return this.http.post(`http://localhost:8080/supplement`, body)
+    }
     parsedJWT(token) {
       const base64Url = token.split('.')[1];
       const base64 = base64Url.replace('-', '+').replace('_', '/');

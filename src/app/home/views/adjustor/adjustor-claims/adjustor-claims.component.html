@@ -2,6 +2,10 @@
 	<div class="row">
     <div class="col-md-12">
     <h4> {{ adjustorName }}  Supplemental Claims</h4>
+		<div class="form-group">
+   <label for="exampleInputFile">Upload your Image</label>
+   <input type="file" class=" form-control-file" id="selectFile" name="selectFile" aria-describedby="fileHelp" (change)="uploadImage()" >
+ </div>
     <div class="table-responsive">
       <table id="mytable" class="table table-bordred table-striped">
          <thead>

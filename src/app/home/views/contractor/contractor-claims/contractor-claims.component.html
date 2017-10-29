@@ -28,8 +28,13 @@
 	        <td> ${{ contractorClaim.value }}</td>
 					<td> {{ contractorClaim.adjustor }}</td>
 	        <td><p title="Edit"><button id="{{ contractorClaim.id }}" name="submit" (click)="open(contractorClaim, content)" type="submit" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-	        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+	        <td><p title="Delete"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></p></td>
+					<td>
+						<label for="exampleInputFile">Upload your Image</label>
+				    <input #tref type="file" class="form-control-file" id="tref" name="tref" aria-describedby="fileHelp" (change)="uploadImage(tref)">
+					</td>
         </tr>
+
     </tbody>
 </table>
 <div class="clearfix"></div>
@@ -47,6 +52,7 @@
 	</div>
 </div>
 <br>
+
 <ng-template #content let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h4 class="modal-title">Update Claim</h4>
@@ -55,7 +61,7 @@
     </button>
   </div>
   <div class="modal-body" >
-		<form (ngSubmit)=sayHi() #f="ngForm" >
+		<form #f="ngForm" (ngSubmit)=uploadImage(f)>
 		<div class="col-lg-12 col-md-12 col-sm-12">
 				<input class="form-control"
 				type="email"
@@ -115,10 +121,13 @@
 				[ngModel]="this.singleContractorClaim.adjustor"
 				name="singleclaimadjustor"
 				disabled>
-
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<label for="exampleInputFile">Upload your Image</label>
+	    <input #tref type="file" class="form-control-file" id="tref" name="tref" aria-describedby="fileHelp" (change)="uploadImage(tref)" >
 		</div>
 		<div class="col-lg-12  col-md-12 col-sm-12">
-			<button type="submit" class="btn btn-default submitButton" (click)="c('Close click')" >Submit</button>
+			<button type="submit" class="btn btn-default submitButton" >Submit</button>
 		</div>
 	</form>
   </div>
@@ -126,3 +135,25 @@
     <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
   </div>
 </ng-template>
+
+<!-- <ng-template #content let-c="close" let-d="dismiss">
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</ng-template> -->

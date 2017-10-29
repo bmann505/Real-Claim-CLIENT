@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { UserService } from 'app/user.service';
 import { Response } from '@angular/http';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, NgForm } from '@angular/forms';
+
+// @ViewChild('template')
+//   template: TemplateRef<any>
 
 
 @Component({
@@ -15,10 +18,17 @@ export class ContractorClaimsComponent implements OnInit {
   contratorName = '';
   closeResult: string;
   singleContractorClaim
-  constructor(private userService: UserService, private modalService: NgbModal) { }
+  imageURL = ''
+  elementRef: ElementRef;
+
+  constructor(private userService: UserService,
+              private modalService: NgbModal,
+              private elementref: ElementRef) {
+              this.elementRef = elementref;
+  }
 
   ngOnInit() {
-    this.onGetContractorClaims()
+    this.onGetContractorClaims();
   }
   onGetContractorClaims() {
     const token = localStorage.getItem('token')
@@ -35,6 +45,40 @@ export class ContractorClaimsComponent implements OnInit {
       }
     )
   }
+// uploadImage(){
+//     let templatedd = this.templateref.nativeElement.querySelector('ng-template')
+//     console.log(templatedd)
+// }
+  uploadImage() {
+    let files = this.elementref.nativeElement.querySelector('#tref').files;
+    console.log(files);
+    let formData = new FormData();
+    let img = files[0];
+    formData.append('image', img);
+    console.log(formData);
+    this.userService.uploadImage(formData)
+    .subscribe(
+      (res) => {
+      this.imageURL = 'https://s3.us-east-2.amazonaws.com/supplementalclaim/' + res.json();
+      console.log(this.imageURL);
+      let body = {
+        url: this.imageURL,
+        name: 'some name',
+        type: 'picture',
+        claim_id: 1
+      };
+      this.userService.insertSupplement(body)
+      .subscribe(
+        (response: Response) => {
+          let data = response.json();
+          console.log(data)
+        }
+      )
+      } ,
+        (error) => console.log(error)
+      ) 
+  }
+
 
   onUpdateClaim() {
 

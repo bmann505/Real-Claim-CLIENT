@@ -1,7 +1,4 @@
-/*body.background-imgage {
-  background-image: url("../../../../assets/back-drop.jpg");
-  opacity: 0.6;
-}*/
+
 .btn-default:hover {
   border-color: #d8002b !important;
 }
@@ -81,3 +78,46 @@
                 text-decoration: none;
                 outline: none;
             }
+            div.container.signinbox {
+              display: flex;
+              justify-content: center;
+            }
+
+            div.row.loginbox {
+              display: flex;
+              justify-content: center;
+              align-content: center;
+
+            }
+
+            div.row.createAccount {
+              display: flex;
+              justify-content: center;
+            }
+
+      .background-image {
+         position: fixed;
+         top: -50%;
+         left: -50%;
+         width: 200%;
+         height: 200%;
+       }
+       .background-image img {
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         margin: auto;
+         min-width: 50%;
+         min-height: 50%;
+         opacity: 0.5;
+       }
+
+      .singtext {
+        text-align: center;
+      }
+
+      .signIn {
+        text-align: center;
+      }

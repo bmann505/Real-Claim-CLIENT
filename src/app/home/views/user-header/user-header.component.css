@@ -1,3 +1,7 @@
 .logo {
   height: 18vh;
 }
+
+.user-signout-btn {
+  align-self: flex-end;
+}

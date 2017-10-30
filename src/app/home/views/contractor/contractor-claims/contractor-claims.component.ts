@@ -71,13 +71,13 @@ export class ContractorClaimsComponent implements OnInit {
   }
 
 
-  onUpdateClaim(form: NgForm, tref) {
+  onUpdateClaim(form: NgForm) {
     const user = form.value.singleclaimuser;
     const description = form.value.singleclaimdescription;
     const address = form.value.singleclaimaddress;
     const status = form.value.singleclaimstatus;
     const estimate = form.value.singleclaimestimate;
-    const value = form.value.singlecliamvalue;
+    const value = form.value.singleclaimvalue;
     const id = form.value.updateid;
     const body = {
       user: user,

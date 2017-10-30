@@ -24,7 +24,7 @@ export class UserService {
       return this.http.get(`http://localhost:8080/contractor/${id}`);
     }
     getClaimsByAdjustor(id) {
-      return this.http.get(`https://radiant-wave-93298.herokuapp.com/adjustor/${id}`);
+      return this.http.get(`http://localhost:8080/adjustor/${id}`);
     }
 
     uploadImage(formData) {

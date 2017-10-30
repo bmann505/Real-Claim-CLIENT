@@ -35,9 +35,7 @@ export class ContractorClaimsComponent implements OnInit {
     .subscribe(
       (response: Response) => {
         let data =  response.json()
-        data.forEach(claim => {
-          this.contractorClaims.push(claim);
-        })
+        this.contractorClaims = data.reverse();
         this.contratorName = this.contractorClaims[0].contractor;
       }
     )

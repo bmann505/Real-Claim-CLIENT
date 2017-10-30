@@ -30,9 +30,7 @@ export class AdjustorClaimsComponent implements OnInit {
     .subscribe(
       (response: Response) => {
         let data =  response.json()
-        data.forEach(claim => {
-          this.adjustorClaims.push(claim);
-        })
+        this.adjustorClaims = data.reverse()
       }
     )
   }

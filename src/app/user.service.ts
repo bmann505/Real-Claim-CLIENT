@@ -21,22 +21,22 @@ export class UserService {
     }
 
     getClaimsByContractor(id) {
-      return this.http.get(`http://localhost:8080/contractor/${id}`);
+      return this.http.get(`https://radiant-wave-93298.herokuapp.com/contractor/${id}`);
     }
     getClaimsByAdjustor(id) {
-      return this.http.get(`http://localhost:8080/adjustor/${id}`);
+      return this.http.get(`https://radiant-wave-93298.herokuapp.com/adjustor/${id}`);
     }
 
     uploadImage(formData) {
-      return this.http.post(`http://localhost:8080/image/`, formData);
+      return this.http.post(`https://radiant-wave-93298.herokuapp.com/image/`, formData);
     }
 
     insertSupplement(body) {
-      return this.http.post(`http://localhost:8080/supplement`, body);
+      return this.http.post(`https://radiant-wave-93298.herokuapp.com/supplement`, body);
     }
 
     updateClaim(id, body) {
-      return this.http.put(`http://localhost:8080/claim/${id}`, body);
+      return this.http.put(`https://radiant-wave-93298.herokuapp.com/claim${id}`, body);
     }
     parsedJWT(token) {
       const base64Url = token.split('.')[1];

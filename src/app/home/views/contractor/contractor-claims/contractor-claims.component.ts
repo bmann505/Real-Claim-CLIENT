@@ -4,9 +4,6 @@ import { Response } from '@angular/http';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, NgForm } from '@angular/forms';
 
-// @ViewChild('template')
-//   template: TemplateRef<any>
-
 
 @Component({
   selector: 'app-contractor-claims',
@@ -45,22 +42,16 @@ export class ContractorClaimsComponent implements OnInit {
       }
     )
   }
-// uploadImage(){
-//     let templatedd = this.templateref.nativeElement.querySelector('ng-template')
-//     console.log(templatedd)
-// }
-  uploadImage() {
-    let files = this.elementref.nativeElement.querySelector('#tref').files;
-    console.log(files);
+
+  uploadImage(tref) {
+    let files = tref.files;
     let formData = new FormData();
     let img = files[0];
     formData.append('image', img);
-    console.log(formData);
     this.userService.uploadImage(formData)
     .subscribe(
       (res) => {
       this.imageURL = 'https://s3.us-east-2.amazonaws.com/supplementalclaim/' + res.json();
-      console.log(this.imageURL);
       let body = {
         url: this.imageURL,
         name: 'some name',
@@ -71,17 +62,37 @@ export class ContractorClaimsComponent implements OnInit {
       .subscribe(
         (response: Response) => {
           let data = response.json();
-          console.log(data)
         }
       )
       } ,
         (error) => console.log(error)
-      ) 
+      )
+
   }
 
 
-  onUpdateClaim() {
-
+  onUpdateClaim(form: NgForm, tref) {
+    const user = form.value.singleclaimuser;
+    const description = form.value.singleclaimdescription;
+    const address = form.value.singleclaimaddress;
+    const status = form.value.singleclaimstatus;
+    const estimate = form.value.singleclaimestimate;
+    const value = form.value.singlecliamvalue;
+    const id = form.value.updateid;
+    const body = {
+      user: user,
+      description: description,
+      address: address,
+      status: status,
+      estimate: estimate,
+      value: value,
+    }
+    this.userService.updateClaim(id, body)
+    .subscribe(
+      (response: Response) => {
+        let data = response.json()
+      }
+    )
   }
 
   open(contractorClaim, content) {
@@ -103,8 +114,5 @@ export class ContractorClaimsComponent implements OnInit {
     }
   }
 
-  sayHi() {
-    console.log("hi");
-  }
 
 }

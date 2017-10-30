@@ -14,8 +14,6 @@ export class OwnerComponent implements OnInit {
   ngOnInit() {
   }
 
-  onNewForm() {
-    this.newClaimForm = !this.newClaimForm;
-  }
+
 
 }

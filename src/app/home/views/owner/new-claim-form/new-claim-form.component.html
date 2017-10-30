@@ -1,4 +1,4 @@
-<div class="well center-block" style="max-width: 800px">
+<!-- <div class="well center-block" style="max-width: 800px">
   <form class="form-horizontal" (ngSubmit)="onSubmitClaim(f)" #f="ngForm">
     <div class="form-group">
       <label for="newClaimDescription" class="col-sm-2 control-label">Description</label>
@@ -93,4 +93,93 @@
       </div>
     </div>
   </form>
+</div> -->
+
+<div class="container siginbox" style="display: flex" >
+<div class="background-image">
 </div>
+<div class="col-lg-4 col-md-3 col-sm-2 .offset-md-3"></div>
+<div class="col-lg-4 col-md-6 col-sm-8 .offset-md-3">
+   <div class="row loginbox">
+       <div class="signIn col-lg-12">
+           <span class="singtext" (click)="onNewForm()" >Start New Claim</span>
+       </div>
+       <form (ngSubmit)=onSubmitClaim(f) #f="ngForm" [hidden]="newClaimForm">
+         <div class="logo">
+             <img src="assets/clock.png"  alt="Logo"  >
+         </div>
+       <div class="col-lg-12 col-md-12 col-sm-12">
+         <select id="newClaimDescription"
+          name="newClaimDescription"
+          class="form-control"
+          ngModel>
+          <option value="" disabled selected>Description</option>
+           <option [value]="" *ngFor="let description of descriptions">{{ description }}</option>
+         </select>
+       </div>
+       <div class="col-lg-12  col-md-12 col-sm-12">
+           <input type="number"
+           class="form-control"
+           id="estimate"
+           placeholder="estimate"
+           ngModel
+           name="newClaimEstimate">
+       </div>
+       <div class="col-lg-12  col-md-12 col-sm-12">
+           <input type="number"
+           class="form-control"
+           id="Approved Value"
+           placeholder="value"
+           ngModel
+           name="newClaimValue">
+       </div>
+       <div class="col-lg-12  col-md-12 col-sm-12">
+       <select id="newClaimStatus"
+       name="newClaimStatus"
+       class="form-control"
+       ngModel>
+         <option value="pending-contractor" selected>Pending Contractor</option>
+         <option value="pending-adjustor" disabled>Pending Adjustor</option>
+         <option value="approved" disabled>Approved</option>
+       </select>
+       </div>
+       <div class="col-lg-12  col-md-12 col-sm-12">
+       <input type="text"
+       class="form-control"
+       id="newClaimAddress"
+       placeholder="Address"
+       ngModel
+       name="newClaimAddress">
+      </div>
+      <div class="col-lg-12  col-md-12 col-sm-12">
+        <select id="newClaimAdjustor"
+        name="newClaimAdjustor"
+        class="form-control"
+        ngModel>
+          <option value="" disabled selected>Adjustor Name, Company</option>
+          <option value="{{adjustor.id}}" *ngFor="let adjustor of adjustors">{{ adjustor.name + " " + adjustor.company}}</option>
+        </select>
+      </div>
+       <div class="col-lg-12  col-md-12 col-sm-12">
+          <select id="newClaimContractor"
+           name="newClaimContractor"
+           class="form-control"
+           ngModel>
+           <option value="" disabled selected>Contractor Name, Company</option>
+            <option [value]="contractor.id" *ngFor="let contractor of contractors">{{ contractor.name + " " + contractor.company}}</option>
+          </select>
+       </div>
+       <div class="col-lg-12  col-md-12 col-sm-12">
+         <label class="custom-file">
+           <input placeholder="upload claim" type="file" id="file" class="custom-file-input">
+           <span class="custom-file-control"></span>
+         </label>
+       </div>
+       <div class="col-lg-12  col-md-12 col-sm-12">
+         <button type="submit" class="btn btn-default submitButton" (click)="onSubmitClaim()">Submit</button>
+       </div>
+       <div class="col-lg-12  col-md-12 col-sm-12">
+         <button type="submit" class="btn btn-default submitButton" (click)="onNewForm()">Close</button>
+       </div>
+     </form>
+ </div>

@@ -13,8 +13,8 @@ export class NewClaimFormComponent implements OnInit, OnChanges {
   contractors = [];
   adjustors = [];
   descriptions = ['Roof', 'Fence', 'Windows', 'Siding']
+  newClaimForm = true;
 
-  @Input() onNewForm: () => void;
   @Input() onGetOwnerClaims: () => void;
   constructor(private userService: UserService, private router: Router) { }
 
@@ -22,8 +22,13 @@ export class NewClaimFormComponent implements OnInit, OnChanges {
     this.getContractorsAndAdjustors()
   }
   ngOnChanges() {
-
   }
+
+  onNewForm() {
+    this.newClaimForm = !this.newClaimForm;
+  }
+
+
     getContractorsAndAdjustors() {
       this.userService.getUsers()
       .subscribe(
@@ -61,6 +66,7 @@ export class NewClaimFormComponent implements OnInit, OnChanges {
         adjustor_id: adjustor_id,
         contractor_id: contractor_id
       }
+      console.log(body)
       this.userService.postClaim(body)
       .subscribe(
         (response: Response) => {

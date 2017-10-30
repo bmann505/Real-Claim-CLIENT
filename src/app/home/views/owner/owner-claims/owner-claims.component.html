@@ -1,1 +1,132 @@
+<div class="container-fluid" ng-app="application" ng-controller="AppCtrl" [hidden]="newClaimForm">
+	<div class="row">
+    <div class="col-md-12">
+    <h4> {{ contractorName }}  Supplemental Claims</h4>
+    <div class="table-responsive" ng-app="application" ng-controller="AppCtrl">
+      <table id="mytable" class="table table-bordred table-striped">
+         <thead>
+          <th><input type="checkbox" id="checkall"/></th>
+          <th>Description</th>
+          <th>Address</th>
+          <th>Status</th>
+          <th>Estimate</th>
+          <th>Approved Value</th>
+					<th>Insurance Adjustor</th>
+          <th>Contractor</th>
+          <th>Edit</th>
+          <th>Delete</th>
+         </thead>
+    <tbody>
+        <tr *ngFor="let ownerClaim of ownerClaims">
+	        <td><input type="checkbox" class="checkthis" /></td>
 
+	        <td> {{ ownerClaim.description }}</td>
+	        <td> {{ ownerClaim.address }}</td>
+	        <td> {{ ownerClaim.status }}</td>
+	        <td> ${{ ownerClaim.estimate }}</td>
+	        <td> ${{ ownerClaim.value }}</td>
+					<td> {{ ownerClaim.adjustor }}</td>
+          <td> {{ ownerClaim.contractor }}</td>
+					<td><button (click)="open(ownerClaim, content)" id="{{ ownerClaim.id }}" name="submit" type="button" class="btn btn-outline-primary">Edit</button></td>
+					<td><button type="button" class="btn btn-outline-danger">Delete</button></td>
+        </tr>
+
+    </tbody>
+</table>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Update Claim</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" >
+		<form #editform="ngForm" (ngSubmit)=onUpdateClaim(editform)>
+
+		<div class="col-lg-12  col-md-12 col-sm-12">
+				<input
+				class="form-control"
+				type="text"
+				placeholder=""
+				[ngModel]="this.singleOwnerClaim.description"
+				name="singleclaimdescription"
+				disabled>
+		</div>
+		<div class="col-lg-12  col-md-12 col-sm-12">
+				<input
+				class="form-control"
+				type="text"
+				placeholder=""
+				[ngModel]="this.singleOwnerClaim.address"
+				name="singleclaimaddress"
+				disabled>
+		</div>
+		<div class="col-lg-12  col-md-12 col-sm-12">
+				<input
+				class="form-control"
+				type="text"
+				placeholder=""
+				[ngModel]="this.singleOwnerClaim.status"
+				name="singleclaimstatus">
+		</div>
+		<div class="col-lg-12  col-md-12 col-sm-12">
+				<input
+				class="form-control"
+				type="number"
+				placeholder=""
+				[ngModel]="this.singleOwnerClaim.estimate"
+				name="singleclaimestimate">
+		</div>
+		<div class="col-lg-12  col-md-12 col-sm-12">
+				<input
+				class="form-control"
+				type="number"
+				placeholder=""
+				[ngModel]="this.singleOwnerClaim.value"
+				name="singleclaimvalue"
+				disabled>
+		</div>
+		<div class="col-lg-12  col-md-12 col-sm-12">
+				<input
+				class="form-control"
+				type="text"
+				placeholder=""
+				[ngModel]="this.singleOwnerClaim.adjustor"
+				name="singleclaimadjustor"
+				disabled>
+		</div>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+				<input class="form-control"
+				type="email"
+				placeholder=""
+				[ngModel]="this.singleOwnerClaim.contractor"
+				name="singleclaimcontractor"
+				disabled>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<label for="exampleInputFile">Upload your Image</label>
+	    <input #tref type="file"
+			class="form-control-file"
+			id="tref"
+			name="tref"
+			aria-describedby="fileHelp"
+			(change)=uploadImage(tref)>
+		</div>
+		<div class="col-lg-12  col-md-12 col-sm-12">
+			<button type="submit" class="btn btn-default submitButton" >Submit</button>
+		</div>
+		<div>
+			<input
+			type="text"
+			name="updateid"
+			value=""
+			[hidden]="true"
+			[ngModel]="this.singleOwnerClaim.id">
+		</div>
+	</form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>

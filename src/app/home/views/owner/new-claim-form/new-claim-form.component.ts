@@ -74,6 +74,7 @@ export class NewClaimFormComponent implements OnInit, OnChanges {
         }
       )
       this.onNewForm();
+      this.router.navigate(['/owner']);
     }
 
 

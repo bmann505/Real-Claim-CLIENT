@@ -74,3 +74,8 @@
                 text-decoration: none;
                 outline: none;
             }
+
+            .clock {
+              height: 6vh;
+              margin-left: 5em;
+            }

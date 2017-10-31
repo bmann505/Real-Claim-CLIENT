@@ -43,6 +43,10 @@ export class UserService {
       return this.http.get(`http://localhost:8080/supplement/${id}`);
     }
 
+    sendConfirmation() {
+      return this.http.get(`http://localhost:8080/confirmation`);
+    }
+
     parsedJWT(token) {
       const base64Url = token.split('.')[1];
       const base64 = base64Url.replace('-', '+').replace('_', '/');

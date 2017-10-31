@@ -4,4 +4,23 @@
 
 .user-signout-btn {
   align-self: flex-end;
+  background-color: lightgrey;
+  color: black;
+  /*margin-top: 12px;
+  margin-bottom: 10px;
+  padding: 10px 0px;
+  width: 100%;
+  margin-left: 2px;
+  font-size: 16px;
+  border-radius: 0px;
+  outline: none;*/
+}
+
+
+.btn-default:hover {
+  border-color: #d8002b !important;
+}
+.user-signout-btn:hover,.user-signout-btn:focus{
+    color: #fff;
+    outline: none;
 }

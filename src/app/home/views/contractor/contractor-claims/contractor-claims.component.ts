@@ -92,6 +92,7 @@ export class ContractorClaimsComponent implements OnInit {
       estimate: estimate,
       value: value,
     }
+    console.log(body)
     this.userService.updateClaim(id, body)
     .subscribe(
       (response: Response) => {

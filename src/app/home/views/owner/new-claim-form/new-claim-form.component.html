@@ -126,7 +126,7 @@
            name="newClaimEstimate">
        </div>
        <div class="col-lg-12  col-md-12 col-sm-12">
-           <input type="number"
+         <input type="number"
            class="form-control"
            id="Approved Value"
            placeholder="value"
@@ -136,11 +136,13 @@
        <div class="col-lg-12  col-md-12 col-sm-12">
        <select id="newClaimStatus"
        name="newClaimStatus"
+       placeholder="Pending Contractor"
        class="form-control"
        ngModel>
-         <option value="pending-contractor" selected>Pending Contractor</option>
-         <option value="pending-adjustor" disabled>Pending Adjustor</option>
-         <option value="approved" disabled>Approved</option>
+       <option value="" disabled selected>Status</option>
+         <option value="Pending-Contractor"selected>Pending Contractor</option>
+         <option value="Pending-Adjustor" disabled>Pending Adjustor</option>
+         <option value="Approved" disabled>Approved</option>
        </select>
        </div>
        <div class="col-lg-12  col-md-12 col-sm-12">
@@ -169,12 +171,12 @@
             <option [value]="contractor.id" *ngFor="let contractor of contractors">{{ contractor.name + " " + contractor.company}}</option>
           </select>
        </div>
-       <div class="col-lg-12  col-md-12 col-sm-12">
+       <!-- <div class="col-lg-12  col-md-12 col-sm-12">
          <label class="custom-file">
            <input placeholder="upload claim" type="file" id="file" class="custom-file-input">
            <span class="custom-file-control"></span>
          </label>
-       </div>
+       </div> -->
        <div class="col-lg-12  col-md-12 col-sm-12">
          <button type="submit" class="btn btn-default submitButton" (click)="onSubmitClaim()">Submit</button>
        </div>

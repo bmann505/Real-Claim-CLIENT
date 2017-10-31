@@ -14,6 +14,8 @@ export class OwnerClaimsComponent implements OnInit, OnChanges {
   singleOwnerClaim
   closeResult: string;
   done = false;
+  ownerSupplements = [];
+  claimId: number;
 
   constructor(private userService: UserService, private modalService: NgbModal) { }
 
@@ -64,7 +66,8 @@ open(ownerClaim, editcontent) {
   });
 }
 
-openRecords(recordcontent) {
+openRecords(ownerClaim, recordcontent) {
+  this.claimId = ownerClaim.id
   this.modalService.open(recordcontent).result.then((result) => {
     this.closeResult = `Closed with: ${result}`;
   }, (reason) => {

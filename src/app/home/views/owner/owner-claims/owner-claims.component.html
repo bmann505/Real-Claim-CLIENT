@@ -29,7 +29,7 @@
 					<td> {{ ownerClaim.adjustor }}</td>
           <td> {{ ownerClaim.contractor }}</td>
 					<td><button (click)="open(ownerClaim, editcontent)" id="{{ ownerClaim.id }}" name="submit" type="button" class="btn btn-outline-primary">Edit</button></td>
-          <td><button (click)="openRecords(recordcontent)" type="button" class="btn btn-outline-danger" >Records</button></td>
+          <td><button (click)="openRecords(ownerClaim, recordcontent)" type="button" class="btn btn-outline-danger" name="{{ ownerClaim.id }}" >Records</button></td>
 					<td><button type="button" (click)="onDone()" class="btn btn-outline-success">Done</button></td>
         </tr>
 
@@ -140,7 +140,7 @@
   </div>
   <div class="modal-body" >
     <div class="col-lg-12 col-md-12 col-sm-12">
-    <img src="https://s3.us-east-2.amazonaws.com/supplementalclaim/4a63dcb0-da34-46c9-a01e-343ef42fb65a" width="450px" height="300px" alt="">
+    <img src="" width="450px" height="300px" alt="">
    </div>
  </div>
   <div class="modal-footer">

@@ -37,7 +37,7 @@ export class ContractorClaimsComponent implements OnInit {
         let data =  response.json();
         console.log(data)
         this.contractorClaims = data.reverse();
-        this.contratorName = this.contractorClaims[0].contractor;
+        // this.contratorName = this.contractorClaims[0].contractor;
         console.log(this.contractorClaims)
       }
     )

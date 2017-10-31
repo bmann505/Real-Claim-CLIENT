@@ -1,4 +1,4 @@
-<app-header></app-header>
+<!-- <app-header></app-header>
 <div class="well center-block" style="max-width: 600px">
   <form class="form-horizontal" (ngSubmit)="onSignUp(f)" #f="ngForm">
     <div class="form-group">
@@ -77,4 +77,85 @@
       </div>
     </div>
   </form>
-</div>
+</div> -->
+
+<div class="container siginbox" style="display: flex" >
+  <div class="background-image">
+    <img src="../../../../assets/back-drop.jpg" alt="">
+  </div>
+ <div class="col-lg-4 col-md-3 col-sm-2 .offset-md-3"></div>
+ <div class="col-lg-4 col-md-6 col-sm-8 .offset-md-3">
+     <div class="logo">
+         <img src="assets/logo.png"  alt="Logo"  >
+     </div>
+     <div class="row loginbox">
+         <div class="signIn col-lg-12">
+             <span class="singtext" >Sign Up</span>
+         </div>
+         <form (ngSubmit)=onSignUp(f) #f="ngForm">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+           <input type="text"
+           class="form-control"
+           id="signUpName"
+           placeholder="Full Name"
+           ngModel
+           name="name">
+         </div>
+         <div class="col-lg-12 col-md-12 col-sm-12">
+             <input class="form-control"
+             type="email"
+             placeholder="Email"
+             ngModel
+             name="email">
+         </div>
+         <div class="col-lg-12  col-md-12 col-sm-12">
+             <input
+             class="form-control"
+             type="password"
+             placeholder="Password"
+             ngModel
+             name="password">
+         </div>
+         <div class="col-lg-12  col-md-12 col-sm-12" [hidden]="!adjustor">
+           <input type="text"
+           class="form-control"
+           id="signUpTitle"
+           placeholder="Title"
+           ngModel
+           name="title">
+         </div>
+        <div class="col-lg-12  col-md-12 col-sm-12" [hidden]="!adjustor">
+         <input type="text"
+         class="form-control"
+         id="signUpCompany"
+         placeholder="Company"
+         ngModel
+         name="company">
+       </div>
+        <div class="col-lg-12  col-md-12 col-sm-12">
+          <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-secondary">
+            <input type="radio"
+            name="role"
+            id="contractorCheckbox"
+            value="contractor"
+            (click)="onAdjustor()"
+            ngModel
+            autocomplete="off"> Contractor
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio"
+            name="role"
+            id="adjustorCheckbox"
+            value="adjustor"
+            (click)="onAdjustor()"
+            ngModel
+            autocomplete="off"> Adjustor
+          </label>
+          </div>
+        </div>
+         <div class="col-lg-12  col-md-12 col-sm-12">
+           <button type="submit" class="btn btn-default submitButton">Sign Up</button>
+         </div>
+       </form>
+     </div>

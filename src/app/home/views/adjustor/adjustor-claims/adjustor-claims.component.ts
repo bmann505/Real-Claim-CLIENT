@@ -97,6 +97,14 @@ export class AdjustorClaimsComponent implements OnInit {
     });
   }
 
+  openRecords(recordcontent) {
+    this.modalService.open(recordcontent).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

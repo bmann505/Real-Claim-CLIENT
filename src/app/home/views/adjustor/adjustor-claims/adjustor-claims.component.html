@@ -26,8 +26,8 @@
         <td> {{ adjustorClaim.description }}</td>
         <td> {{ adjustorClaim.address }}</td>
         <td> {{ adjustorClaim.status }}</td>
-        <td> ${{ adjustorClaim.estimate }}</td>
-        <td> ${{ adjustorClaim.value }}</td>
+        <td> {{ adjustorClaim.estimate | currency:'USD':true:'4.2-2' }}</td>
+        <td> {{ adjustorClaim.value | currency:'USD':true:'4.2-2' }}</td>
 				<td> {{ adjustorClaim.contractor }}</td>
 				<td><button (click)="open(adjustorClaim, content)" id="{{ adjustorClaim.id }}" name="submit" type="button" class="btn btn-outline-primary">Edit</button></td>
 				<td><button (click)="openRecords(recordcontent)" type="button" class="btn btn-outline-danger" >Records</button></td>

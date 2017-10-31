@@ -1,4 +1,4 @@
-<div class="container-fluid" ng-app="application" ng-controller="AppCtrl" [hidden]="newClaimForm">
+<div class="container-fluid" ng-app="application" ng-controller="AppCtrl" [hidden]="done">
 	<div class="row">
     <div class="col-md-12">
     <h4> {{ contractorName }}  Supplemental Claims</h4>
@@ -24,13 +24,13 @@
 	        <td> {{ ownerClaim.description }}</td>
 	        <td> {{ ownerClaim.address }}</td>
 	        <td> {{ ownerClaim.status }}</td>
-	        <td> ${{ ownerClaim.estimate }}</td>
-	        <td> ${{ ownerClaim.value }}</td>
+	        <td> {{ ownerClaim.estimate | currency:'USD':true:'4.2-2' }}</td>
+	        <td> {{ ownerClaim.value | currency:'USD':true:'4.2-2'}}</td>
 					<td> {{ ownerClaim.adjustor }}</td>
           <td> {{ ownerClaim.contractor }}</td>
 					<td><button (click)="open(ownerClaim, editcontent)" id="{{ ownerClaim.id }}" name="submit" type="button" class="btn btn-outline-primary">Edit</button></td>
           <td><button (click)="openRecords(recordcontent)" type="button" class="btn btn-outline-danger" >Records</button></td>
-					<td><button type="button" class="btn btn-outline-success">Done</button></td>
+					<td><button type="button" (click)="onDone()" class="btn btn-outline-success">Done</button></td>
         </tr>
 
     </tbody>

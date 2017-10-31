@@ -17,6 +17,7 @@ export class ContractorClaimsComponent implements OnInit {
   singleContractorClaim
   imageURL = ''
   elementRef: ElementRef;
+  done = false;
 
   constructor(private userService: UserService,
               private modalService: NgbModal,
@@ -26,6 +27,10 @@ export class ContractorClaimsComponent implements OnInit {
 
   ngOnInit() {
     this.onGetContractorClaims();
+  }
+
+  onDone () {
+    this.done = true;
   }
   onGetContractorClaims() {
     const token = localStorage.getItem('token')

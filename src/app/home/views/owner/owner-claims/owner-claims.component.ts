@@ -13,7 +13,7 @@ export class OwnerClaimsComponent implements OnInit, OnChanges {
   ownerClaims = [];
   singleOwnerClaim
   closeResult: string;
-
+  done = false;
 
   constructor(private userService: UserService, private modalService: NgbModal) { }
 
@@ -24,6 +24,10 @@ export class OwnerClaimsComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.onGetOwnerClaims()
   }
+
+onDone() {
+  this.done = true;
+}
 
 onGetOwnerClaims() {
   const token = localStorage.getItem('token')

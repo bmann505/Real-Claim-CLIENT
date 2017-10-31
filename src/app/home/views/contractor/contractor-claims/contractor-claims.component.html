@@ -2,7 +2,7 @@
 	<div class="row">
     <div class="col-md-12">
     <h4> {{ contractorName }}  Supplemental Claims</h4>
-    <div class="table-responsive" ng-app="application" ng-controller="AppCtrl">
+    <div class="table-responsive" ng-app="application" ng-controller="AppCtrl" >
       <table id="mytable" class="table table-bordred table-striped">
          <thead>
           <th><input type="checkbox" id="checkall"/></th>
@@ -24,12 +24,12 @@
 	        <td> {{ contractorClaim.description }}</td>
 	        <td> {{ contractorClaim.address }}</td>
 	        <td> {{ contractorClaim.status }}</td>
-	        <td> ${{ contractorClaim.estimate }}</td>
-	        <td> ${{ contractorClaim.value }}</td>
+	        <td> {{ contractorClaim.estimate | currency:'USD':true:'4.2-2' }}</td>
+	        <td> {{ contractorClaim.value | currency:'USD':true:'4.2-2' }}</td>
 					<td> {{ contractorClaim.adjustor }}</td>
 					<td><button (click)="open(contractorClaim, content)" id="{{ contractorClaim.id }}" name="submit" type="button" class="btn btn-outline-primary">Edit</button></td>
 					<td><button (click)="openRecords(recordcontent)" type="button" class="btn btn-outline-danger" >Records</button></td>
-					<td><button type="button" class="btn btn-outline-success">Done</button></td>
+					<td><button (click)="onDone()" type="button" class="btn btn-outline-success">Done</button></td>
         </tr>
 
     </tbody>

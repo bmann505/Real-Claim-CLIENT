@@ -36,12 +36,10 @@ onSignUp(form: NgForm) {
     company: company,
     role: role
   }
-  console.log(body)
   this.authService.signUp(body)
   .subscribe(
     (response: Response) => {
       let data = response.json()
-      console.log('data', data)
       localStorage.setItem('token', data.data);
       if(data.role === 'contractor') {
         this.router.navigate(['/contractor'])

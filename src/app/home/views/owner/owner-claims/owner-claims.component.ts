@@ -36,14 +36,32 @@ onGetOwnerClaims() {
       data.forEach(claim => {
         this.ownerClaims.push(claim);
       })
-      console.log(this.ownerClaims)
     }
   )
 }
 
-open(ownerClaim, content) {
+onGetSupplements() {
+  let id = 1;
+  this.userService.getSupplements(id)
+  .subscribe(
+    (response: Response) => {
+      let data = response.json()
+      console.log(data);
+    }
+  )
+}
+
+open(ownerClaim, editcontent) {
   this.singleOwnerClaim = ownerClaim
-  this.modalService.open(content).result.then((result) => {
+  this.modalService.open(editcontent).result.then((result) => {
+    this.closeResult = `Closed with: ${result}`;
+  }, (reason) => {
+    this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  });
+}
+
+openRecords(recordcontent) {
+  this.modalService.open(recordcontent).result.then((result) => {
     this.closeResult = `Closed with: ${result}`;
   }, (reason) => {
     this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

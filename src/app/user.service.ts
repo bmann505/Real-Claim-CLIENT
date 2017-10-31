@@ -38,6 +38,11 @@ export class UserService {
     updateClaim(id, body) {
       return this.http.put(`http://localhost:8080/claim/${id}`, body);
     }
+
+    getSupplements(id) {
+      return this.http.get(`http://localhost:8080/supplement/${id}`);
+    }
+
     parsedJWT(token) {
       const base64Url = token.split('.')[1];
       const base64 = base64Url.replace('-', '+').replace('_', '/');

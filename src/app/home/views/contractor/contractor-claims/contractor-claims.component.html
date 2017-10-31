@@ -14,7 +14,8 @@
           <th>Approved Value</th>
 					<th>Insurance Adjustor</th>
           <th>Edit</th>
-          <th>Delete</th>
+					<th>Records</th>
+          <th>Done</th>
          </thead>
     <tbody>
         <tr *ngFor="let contractorClaim of contractorClaims">
@@ -27,7 +28,8 @@
 	        <td> ${{ contractorClaim.value }}</td>
 					<td> {{ contractorClaim.adjustor }}</td>
 					<td><button (click)="open(contractorClaim, content)" id="{{ contractorClaim.id }}" name="submit" type="button" class="btn btn-outline-primary">Edit</button></td>
-					<td><button type="button" class="btn btn-outline-danger">Delete</button></td>
+					<td><button (click)="openRecords(recordcontent)" type="button" class="btn btn-outline-danger" >Records</button></td>
+					<td><button type="button" class="btn btn-outline-success">Done</button></td>
         </tr>
 
     </tbody>
@@ -124,6 +126,23 @@
 		</div>
 	</form>
   </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #recordcontent let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Supplemental Claim Records</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" >
+    <div class="col-lg-12 col-md-12 col-sm-12">
+    <img src="https://s3.us-east-2.amazonaws.com/supplementalclaim/4a63dcb0-da34-46c9-a01e-343ef42fb65a" width="450px" height="300px" alt="">
+   </div>
+ </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
   </div>

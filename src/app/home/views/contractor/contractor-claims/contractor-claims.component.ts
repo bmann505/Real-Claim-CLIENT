@@ -34,9 +34,11 @@ export class ContractorClaimsComponent implements OnInit {
     this.userService.getClaimsByContractor(id)
     .subscribe(
       (response: Response) => {
-        let data =  response.json()
+        let data =  response.json();
+        console.log(data)
         this.contractorClaims = data.reverse();
         this.contratorName = this.contractorClaims[0].contractor;
+        console.log(this.contractorClaims)
       }
     )
   }
@@ -96,6 +98,14 @@ export class ContractorClaimsComponent implements OnInit {
   open(contractorClaim, content) {
     this.singleContractorClaim = contractorClaim
     this.modalService.open(content).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  openRecords(recordcontent) {
+    this.modalService.open(recordcontent).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

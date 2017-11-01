@@ -66,15 +66,29 @@ export class NewClaimFormComponent implements OnInit, OnChanges {
         adjustor_id: adjustor_id,
         contractor_id: contractor_id
       }
+      const tablebody = {
+        description: description,
+        estimate: estimate,
+        status: status,
+        value: value,
+        address: address,
+        user_id: user_id,
+        adjustor: 'Jon Doe',
+        contractor: 'Dan Fry'
+      }
       console.log(body)
+      console.log(tablebody)
+      this.userService.updateNewClaimTable.emit(tablebody);
       this.userService.postClaim(body)
       .subscribe(
         (response: Response) => {
           let data = response.json();
+
+
         }
       )
       this.onNewForm();
-      this.router.navigate(['/owner']);
+      this.onGetOwnerClaims()
     }
 
 

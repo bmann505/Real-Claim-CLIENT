@@ -17,14 +17,22 @@ export class OwnerClaimsComponent implements OnInit, OnChanges {
   ownerSupplements = [];
   claimId: number;
 
-  constructor(private userService: UserService, private modalService: NgbModal) { }
+  constructor(private userService: UserService, private modalService: NgbModal) {
+    this.userService.updateNewClaimTable.subscribe(
+      (claim: any) => {
+      console.log(claim)
+      this.ownerClaims.push(claim)
+      }
+    )
+  }
 
   ngOnInit() {
     this.onGetOwnerClaims()
+
   }
 
   ngOnChanges() {
-    this.onGetOwnerClaims()
+    // this.onGetOwnerClaims()
   }
 
 onDone() {

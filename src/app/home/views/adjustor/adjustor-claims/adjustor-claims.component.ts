@@ -15,11 +15,18 @@ export class AdjustorClaimsComponent implements OnInit {
   adjustorClaims = [];
   singleAdjustorClaim
   closeResult: string;
+  modalReference: any;
 
   constructor(private userService: UserService, private elementref: ElementRef, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.onGetAdjustorClaims()
+    this.userService.updateClaimTable.subscribe(
+      (claim: any) => {
+        console.log(claim)
+        this.onGetAdjustorClaims();
+      }
+    )
   }
 
   onGetAdjustorClaims() {
@@ -83,6 +90,8 @@ export class AdjustorClaimsComponent implements OnInit {
     .subscribe(
       (response: Response) => {
         let data = response.json()
+        this.userService.updateClaimTable.emit(data)
+        this.modalReference.close()
         console.log(data)
       }
     )
@@ -90,7 +99,8 @@ export class AdjustorClaimsComponent implements OnInit {
 
   open(adjustorClaim, content) {
     this.singleAdjustorClaim = adjustorClaim
-    this.modalService.open(content).result.then((result) => {
+    this.modalReference = this.modalService.open(content)
+    this.modalReference.result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

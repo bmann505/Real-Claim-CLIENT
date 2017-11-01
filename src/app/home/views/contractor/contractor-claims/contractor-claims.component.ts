@@ -4,6 +4,7 @@ import { Response } from '@angular/http';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, NgForm } from '@angular/forms';
 
+@ViewChild('content')
 
 @Component({
   selector: 'app-contractor-claims',
@@ -18,6 +19,7 @@ export class ContractorClaimsComponent implements OnInit {
   imageURL = ''
   elementRef: ElementRef;
   done = false;
+  modalReference: any;
 
   constructor(private userService: UserService,
               private modalService: NgbModal,
@@ -27,6 +29,12 @@ export class ContractorClaimsComponent implements OnInit {
 
   ngOnInit() {
     this.onGetContractorClaims();
+    this.userService.updateClaimTable.subscribe(
+      (claim: any) => {
+        console.log(claim)
+        this.onGetContractorClaims();
+      }
+    )
   }
 
   onDone () {
@@ -35,6 +43,7 @@ export class ContractorClaimsComponent implements OnInit {
   onGetContractorClaims() {
     const token = localStorage.getItem('token')
     const parsedToken = this.userService.parsedJWT(token);
+    console.log(parsedToken);
     const id = parsedToken;
     this.userService.getClaimsByContractor(id)
     .subscribe(
@@ -49,6 +58,7 @@ export class ContractorClaimsComponent implements OnInit {
     let files = tref.files;
     let formData = new FormData();
     let img = files[0];
+    console.log(img)
     formData.append('image', img);
     this.userService.uploadImage(formData)
     .subscribe(
@@ -73,7 +83,7 @@ export class ContractorClaimsComponent implements OnInit {
   }
 
 
-  onUpdateClaim(form: NgForm) {
+  onUpdateClaim(form: NgForm, content) {
     const user = form.value.singleclaimuser;
     const description = form.value.singleclaimdescription;
     const address = form.value.singleclaimaddress;
@@ -89,18 +99,20 @@ export class ContractorClaimsComponent implements OnInit {
       estimate: estimate,
       value: value,
     }
-    console.log(body)
     this.userService.updateClaim(id, body)
     .subscribe(
       (response: Response) => {
         let data = response.json()
+        this.userService.updateClaimTable.emit(data)
+        this.modalReference.close()
       }
     )
   }
 
   open(contractorClaim, content) {
     this.singleContractorClaim = contractorClaim
-    this.modalService.open(content).result.then((result) => {
+    this.modalReference = this.modalService.open(content)
+    this.modalReference.result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

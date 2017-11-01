@@ -40,10 +40,7 @@ export class ContractorClaimsComponent implements OnInit {
     .subscribe(
       (response: Response) => {
         let data =  response.json();
-        console.log(data)
         this.contractorClaims = data.reverse();
-        // this.contratorName = this.contractorClaims[0].contractor;
-        console.log(this.contractorClaims)
       }
     )
   }
@@ -80,7 +77,7 @@ export class ContractorClaimsComponent implements OnInit {
     const user = form.value.singleclaimuser;
     const description = form.value.singleclaimdescription;
     const address = form.value.singleclaimaddress;
-    const status = form.value.singleclaimstatus;
+    const status = form.value.updatecontractorclaimstatus;
     const estimate = form.value.singleclaimestimate;
     const value = form.value.singleclaimvalue;
     const id = form.value.updateid;

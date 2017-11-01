@@ -66,7 +66,7 @@ export class AdjustorClaimsComponent implements OnInit {
     const user = form.value.singleclaimuser;
     const description = form.value.singleclaimdescription;
     const address = form.value.singleclaimaddress;
-    const status = form.value.singleclaimstatus;
+    const status = form.value.updateadjustorclaimstatus;
     const estimate = form.value.singleclaimestimate;
     const value = form.value.singleclaimvalue;
     const id = form.value.updateid;

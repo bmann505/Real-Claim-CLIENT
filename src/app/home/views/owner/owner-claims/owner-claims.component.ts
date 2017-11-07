@@ -20,7 +20,6 @@ export class OwnerClaimsComponent implements OnInit, OnChanges {
   constructor(private userService: UserService, private modalService: NgbModal) {
     this.userService.updateNewClaimTable.subscribe(
       (claim: any) => {
-      console.log(claim)
       this.ownerClaims.push(claim)
       }
     )
@@ -32,7 +31,6 @@ export class OwnerClaimsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    // this.onGetOwnerClaims()
   }
 
 onDone() {
@@ -60,7 +58,6 @@ onGetSupplements() {
   .subscribe(
     (response: Response) => {
       let data = response.json()
-      console.log(data);
     }
   )
 }

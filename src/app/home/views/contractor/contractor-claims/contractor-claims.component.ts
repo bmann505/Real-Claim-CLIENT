@@ -31,7 +31,6 @@ export class ContractorClaimsComponent implements OnInit {
     this.onGetContractorClaims();
     this.userService.updateClaimTable.subscribe(
       (claim: any) => {
-        console.log(claim)
         this.onGetContractorClaims();
       }
     )
@@ -43,7 +42,6 @@ export class ContractorClaimsComponent implements OnInit {
   onGetContractorClaims() {
     const token = localStorage.getItem('token')
     const parsedToken = this.userService.parsedJWT(token);
-    console.log(parsedToken);
     const id = parsedToken;
     this.userService.getClaimsByContractor(id)
     .subscribe(
@@ -58,7 +56,6 @@ export class ContractorClaimsComponent implements OnInit {
     let files = tref.files;
     let formData = new FormData();
     let img = files[0];
-    console.log(img)
     formData.append('image', img);
     this.userService.uploadImage(formData)
     .subscribe(

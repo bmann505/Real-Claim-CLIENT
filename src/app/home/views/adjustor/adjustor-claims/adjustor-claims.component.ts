@@ -23,7 +23,6 @@ export class AdjustorClaimsComponent implements OnInit {
     this.onGetAdjustorClaims()
     this.userService.updateClaimTable.subscribe(
       (claim: any) => {
-        console.log(claim)
         this.onGetAdjustorClaims();
       }
     )
@@ -85,14 +84,12 @@ export class AdjustorClaimsComponent implements OnInit {
       estimate: estimate,
       value: value
     }
-    console.log(body)
     this.userService.updateClaim(id, body)
     .subscribe(
       (response: Response) => {
         let data = response.json()
         this.userService.updateClaimTable.emit(data)
         this.modalReference.close()
-        console.log(data)
       }
     )
   }

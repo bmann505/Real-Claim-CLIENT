@@ -76,8 +76,6 @@ export class NewClaimFormComponent implements OnInit, OnChanges {
         adjustor: 'Jon Doe',
         contractor: 'Dan Fry'
       }
-      console.log(body)
-      console.log(tablebody)
       this.userService.updateNewClaimTable.emit(tablebody);
       this.userService.postClaim(body)
       .subscribe(
